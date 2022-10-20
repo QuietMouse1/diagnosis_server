@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <head>
+        <title>Borealis Logs Directory</title>
+        <h1>{{ url_for(request.endpoint, **request.view_args) }}</h1>
+    </head>
+    <body>
+        <ul>
+            {% for dir in dir_list%}
+            <li><a href="{{ url_for(request.endpoint, **request.view_args) }}/{{ dir }}">{{ dir }}</a></li> 
+            {% endfor %}
+            {% for file in file_list %}
+            <li><a href="{{ url_for(request.endpoint, **request.view_args) }}/{{ file }}">{{ file }}</a></li> 
+            {% endfor %}
+        </ul>
+    </body>
+    <a href="/"> Go Back Main </a></li> 
+</html>
